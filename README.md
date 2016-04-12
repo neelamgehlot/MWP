@@ -1,4 +1,4 @@
-# Mathematical Wwor Problem Solver
+# Mathematical Word Problem Solver
 Hindi mathematical word problem solver
 
 # Translator:
