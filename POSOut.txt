@@ -1,0 +1,26 @@
+<s>
+राम NNP
+के PSP
+पास NST
+१० QC
+सेब NN
+है VM
+. SYM
+</s>
+<s>
+उसने PRP
+५ QC
+श्याम NNP
+को PSP
+दिये VM
+. SYM
+</s>
+<s>
+अब PRP
+राम NNP
+के PSP
+पास NST
+कितने WQ
+है VM
+? SYM
+</s>
