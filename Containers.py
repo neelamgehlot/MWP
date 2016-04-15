@@ -11,6 +11,11 @@ class Container:
         self.verb = verb
         Container.countainer_Count += 1
 
+    def createContainerFromSentence(self,sentence):
+        for key,value in sentence.iteritems():
+            print str(key)+" "+str(value)
+
+
 def main():
     global j
     lines = []
@@ -44,6 +49,11 @@ def main():
             print key,
             print value
         print("")
+
+    arr_first_container = []
+    arr_second_container = []
+
+    for i in range(0,len(sentences)):
 
 
 

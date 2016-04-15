@@ -1,0 +1,54 @@
+<q>
+<s>
+एक QC
+पेड़ XC
+पर PSP
+5 QC
+संतरे NN
+हे VM
+. SYM
+</s>
+<s>
+३ QC
+संतरे NN
+निचे JJ
+गिर VM
+गये VAUX
+. SYM
+</s>
+<s>
+तो CC
+पेड NN
+पे VM
+कितने WQ
+बचे VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+एक QC
+वृक्ष NN
+पर PSP
+5 QC
+संतरे NN
+हे VM
+. SYM
+</s>
+<s>
+३ QC
+संतरे NN
+निचे JJ
+गिर VM
+गये VAUX
+. SYM
+</s>
+<s>
+तो CC
+पेड NN
+पे VM
+कितने WQ
+बचे VM
+? SYM
+</s>
+</q>
