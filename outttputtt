@@ -1,0 +1,50 @@
+Nimeshhhhhhh
+पास
+Stemmer.mmAtStemmer : true
+Stemmer.useStemDictionary: false
+Wordlist reading begins : 2016-04-14 21:19:05.47
+Wordlist reading ends : 2016-04-14 21:19:06.361
+SRR reading begins : 2016-04-14 21:19:06.362
+SRR reading ends : 2016-04-14 21:19:06.365
+SRR reading begins : 2016-04-14 21:19:06.377
+SRR reading ends : 2016-04-14 21:19:06.379
+Sense Count is 2
+Offsets[0] 23177
+Offsets[1] 38367
+Synset [0] 23177 - NOUN - [अभयपत्र, अभय-पत्र, पास]
+Synset POS: NOUN
+Synset Num Pointers:2
+HYPERNYM : 9848 - NOUN - [पत्र, पत्रिका]
+ONTO_NODES : मानवकृति (Artifact) (ARTFCT   उदाहरण:- पुस्तक,कुर्सी,नाव इत्यादि); वस्तु (Object) (OBJCT  उदाहरण:- पुस्तक,छाता,पत्थर इत्यादि); निर्जीव (Inanimate) (INANI उदाहरण:- पुस्तक,घर,धूप इत्यादि); संज्ञा (Noun) (N  उदाहरण :- गाय,दूध,मिठाई इत्यादि); TOP (Top Level Node)
+Synset [1] 38367 - NOUN - [प्रवेशिका, प्रवेश_पत्र, प्रवेशपत्र, प्रवेश-पत्र, पास]
+Synset POS: NOUN
+Synset Num Pointers:2
+HYPERNYM : 9848 - NOUN - [पत्र, पत्रिका]
+ONTO_NODES : मानवकृति (Artifact) (ARTFCT   उदाहरण:- पुस्तक,कुर्सी,नाव इत्यादि); वस्तु (Object) (OBJCT  उदाहरण:- पुस्तक,छाता,पत्थर इत्यादि); निर्जीव (Inanimate) (INANI उदाहरण:- पुस्तक,घर,धूप इत्यादि); संज्ञा (Noun) (N  उदाहरण :- गाय,दूध,मिठाई इत्यादि); TOP (Top Level Node)
+Sense Count is 2
+Offsets[0] 84
+Offsets[1] 557
+Synset [0] 84 - ADJECTIVE - [उत्तीर्ण, पास, पारित]
+Synset POS: ADJECTIVE
+Synset Num Pointers:2
+MODIFIES_NOUN : 196 - NOUN - [व्यक्ति, मनुष्य, मानस, आदमी, शख़्स, शख्स, जन, बंदा, बन्दा, नफर, नफ़र, जना, असामी, आदमजाद, चेहरा]
+ONTO_NODES : अवस्थासूचक (Stative) (STE  उदाहरण :- सूखा, तर, जवान इत्यादि); विवरणात्मक (Descriptive) (DES  उदाहरण :- लाल, पाँच, सुंदर इत्यादि); विशेषण (Adjective) (ADJ  उदाहरण:- सुंदर,लिखित,अमर इत्यादि); TOP (Top Level Node)
+Synset [1] 557 - ADJECTIVE - [स्वीकृत, मंजूर, मन्जूर, सहमति-प्राप्त, मंज़ूर, मंज़ूरशुदा, पास, मान्य, अनुज्ञप्त, अनुज्ञात, अनुमति_प्राप्त, अनुमतिप्राप्त, अनुज्ञापित]
+Synset POS: ADJECTIVE
+Synset Num Pointers:2
+MODIFIES_NOUN : 183 - NOUN - [काम, कार्य, कर्म, करम, करनी, कृत्य, कृति, आमाल]
+ONTO_NODES : अवस्थासूचक (Stative) (STE  उदाहरण :- सूखा, तर, जवान इत्यादि); विवरणात्मक (Descriptive) (DES  उदाहरण :- लाल, पाँच, सुंदर इत्यादि); विशेषण (Adjective) (ADJ  उदाहरण:- सुंदर,लिखित,अमर इत्यादि); TOP (Top Level Node)
+Sense Count is 2
+Offsets[0] 373
+Offsets[1] 853
+Synset [0] 373 - ADVERB - [पास, पास_में, नज़दीक, नजदीक, निकट_में, क़रीब_में, समीप, निकट, क़रीब, करीब, सन्निकट, नजीक, मुत्तसिल, अर्वाक, अविदूर]
+Synset POS: ADVERB
+Synset Num Pointers:3
+MODIFIES_VERB : 10794 - VERB - [होना]
+MODIFIES_VERB : 3295 - VERB - [काम_करना, कार्य_करना, करना, अंजाम_देना]
+ONTO_NODES : स्थानसूचक (Place) (PLACE  उदाहरण :- हर जगह इत्यादि); क्रिया विशेषण (Adverb) (ADV उदाहरण:- धीरे,लगातार,दुबारा इत्यादि); TOP (Top Level Node)
+Synset [1] 853 - ADVERB - [पास]
+Synset POS: ADVERB
+Synset Num Pointers:2
+MODIFIES_VERB : 10794 - VERB - [होना]
+ONTO_NODES : रीतिसूचक (Manner) (MAN उदाहरण :- तेज़ी से, चुपके से, धीरे से इत्यादि); क्रिया विशेषण (Adverb) (ADV उदाहरण:- धीरे,लगातार,दुबारा इत्यादि); TOP (Top Level Node)
