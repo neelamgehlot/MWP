@@ -8,8 +8,9 @@
 . SYM
 </s>
 <s>
-उसने PRP
+उस्ने PRP
 ५ QC
+सेब XC
 श्याम NNP
 को PSP
 दिये VM
@@ -21,6 +22,7 @@
 के PSP
 पास NST
 कितने WQ
+सेब NN
 है VM
-? SYM
+. SYM
 </s>
