@@ -34,14 +34,17 @@ def main():
             continue
 
     question = Question()
-    sentenc_number= 0
+    sentence_number= 0
     for sentence in sentences:
         if sentenc_number == 0:
             containerFirstSentence(sentence, question)
         else:
-            containerOtherSentence(sentence, question,sentenc_number)
+            containerOtherSentence(sentence, question,sentence_number)
 
-        sentenc_number += 1
+            # After creating copy containers, call modify on same sentence by passing the same copied container
+
+            modifyContainer(sentence,question,sentence_number)
+        sentence_number += 1
 
     arr_first_container = []
     arr_second_container = []
@@ -51,6 +54,78 @@ def main():
     for i in range(0,len(sentences)):
         print "hello"
 '''
+
+def modifyContainer(sentence, question, sentence_number):
+
+
+    # indexOfVerb = -1
+
+    # indexOfQuantity = -1
+
+    index = 0
+    indexOfPronoun = -1
+    indexOfProperNoun = -1
+    valueEncountered = []
+    integerWordDict = OrderedDict()
+
+    for key, value in sentence.iteritems():
+        integerWordDict[index] = key
+
+        if value == 'PRP':
+            indexOfPronoun = index
+
+        if value == 'NNP' and value in question.names:
+            indexOfProperNoun = index
+
+        if value == 'VM':
+            # indexOfVerb = index
+
+            actionToBePerformed = categoriseVerb(key)
+
+            question.verbs.add(key)
+
+        if value == 'QC':
+            # indexOfQuantity = index
+            val = convertToEnglish(key)
+            valueEncountered.append(val)
+        index += 1
+
+
+    # Depending on action to be performed, there will be two operations
+    actionInOneContainer, actionInSecondContainer = twoActions(actionToBePerformed)
+
+
+
+    if indexOfPronoun < indexOfProperNoun and indexOfPronoun!=-1 and indexOfProperNoun!=-1:
+        q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer, val)
+
+        question.container1[sentence_number].quantity = q1
+
+        q2 = modifyQuantityOfCurrentContainer(question.container2[sentence_number].quantity, actionInSecondContaine,val)
+
+        question.container2[sentence_number].quantity = q2
+
+    if indexOfPronoun != -1 and indexOfProperNoun == -1:
+        # In this sentence, only previous container is into existence, so change only in one container
+        # Also the twoActions will return only one action
+        # so make changes in only one quantity
+        q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer,val)
+
+        question.container1[sentence_number].quantity = q1
+
+    
+
+
+def modifyQuantityOfCurrentContainer(quantity_of_container, action, value_to_add_delete):
+
+    # add or delete value
+    return "updatedQuantity"
+
+def twoActions(actionToBePerformed):
+    # Depending upon either observation, construct, destroy, transfer, return pos,neg, None
+    return "positive", "negative"
+
+def categoriseVerb(word):
 
 
 def containerFirstSentence(sentence, question):
@@ -210,15 +285,6 @@ def containerOtherSentence(sentence, question, sentence_number):
         copyConstructorOf2.printContainer()
 
         question.addContainer(copyConstructorOf2)
-
-
-
-
-
-
-
-
-
 
 
 def isNumber(num):

@@ -1,7 +1,8 @@
 class Question:
-    container1 = []
-    container2 = []
+    container1 = [Question()]
+    container2 = [Question()]
     names = set()
+    verbs = set()
     def __init__(self):
         print ("Constrctor created\n")
 
