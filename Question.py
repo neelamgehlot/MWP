@@ -1,10 +1,10 @@
 class Question:
-    container1 = [Question()]
-    container2 = [Question()]
-    names = set()
-    verbs = set()
     def __init__(self):
         print ("Constrctor created\n")
+        self.container1 = []
+        self.container2 = []
+        self.names = set()
+
 
     def addContainer(self, container):
         if len(self.container1) == 0:

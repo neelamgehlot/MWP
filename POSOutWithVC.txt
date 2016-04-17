@@ -1,0 +1,762 @@
+<q>
+<s>
+एक QC
+वृक्ष NN
+पर PSP
+5 QC
+संतरा NN
+हे VM
+. SYM
+</s>
+<vc>
+पर 0
+</vc>
+<s>
+३ QC
+संतरा NN
+निचे JJ
+गिर VM
+गये VAUX
+. SYM
+</s>
+<vc>
+गिर 0
+गये 2
+</vc>
+<s>
+तो CC
+पेड NN
+पे VM
+कितना WQ
+बच VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+का 0
+है 0
+</vc>
+<s>
+उस्ने PRP
+५ QC
+सेब XC
+श्याम NNP
+को PSP
+दे VM
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+अब PRP
+राम NNP
+का PSP
+पास NST
+कितना WQ
+सेब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+आंर XC
+श्याम NNP
+का PSP
+पास NST
+५ QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उस्ने PRP
+५ QC
+सेब XC
+श्याम NNP
+को PSP
+दे VM
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+अब PRP
+राम NNP
+का PSP
+पास NST
+कितना WQ
+सेब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+आंर XC
+श्याम NNP
+का PSP
+पास NST
+५ QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उस्ने PRP
+५ QC
+सेब XC
+श्याम NNP
+को PSP
+दे VM
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+अब PRP
+का PSP
+श्याम XC
+पास NST
+कितना WQ
+सेब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+है VM
+आंर XC
+श्याम NNP
+का PSP
+पास NST
+५ QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+श्याम NNP
+ने PSP
+राम NNP
+को PSP
+२ QC
+सेब NN
+को PSP
+दे VM
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+अब PRP
+का PSP
+श्याम XC
+पास NST
+कितना WQ
+सेब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसमे PRP
+से PSP
+उसने PRP
+३ QC
+सेब NN
+फेक VM
+दे VAUX
+. SYM
+</s>
+<vc>
+फेक 2
+दे 2
+</vc>
+<s>
+अब PRP
+राम NNP
+का PSP
+पास NST
+कितना WQ
+सेब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+सिता NN
+समुद्र XC
+तट NN
+पर PSP
+७० QC
+सेब NN
+पा VM
+. SYM
+</s>
+<vc>
+पर 0
+पा 0
+</vc>
+<s>
+उसने PRP
+सैम NN
+को PSP
+कुछ QF
+सेब NN
+दे VM
+है VAUX
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+सिता NN
+का PSP
+पास NST
+२७ QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसने PRP
+सैम NN
+को PSP
+कितना WQ
+सेब NN
+दिय VAUX
+? SYM
+</s>
+</q>
+<q>
+<s>
+सारा QF
+का PSP
+विद्यालय NN
+१२ QC
+बास्केटबॉल NN
+मैच NN
+खेल VM
+इस DEM
+साल NN
+. SYM
+</s>
+<vc>
+खेल 0
+</vc>
+<s>
+वह PRP
+४ QC
+खेल NN
+का PSP
+दौरान NST
+हार VM
+गए VAUX
+. SYM
+</s>
+<vc>
+हार 2
+गए 2
+</vc>
+<s>
+वह PRP
+कितना QF
+खेल NN
+जीत VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+जोआन NN
+इस DEM
+साल NN
+४ QC
+फुटबॉल NN
+का PSP
+खेल NN
+का PSP
+ले PSP
+गया VAUX
+था VAUX
+. SYM
+</s>
+<vc>
+गया 0
+था 0
+</vc>
+<s>
+वह PRP
+पिछला JJ
+साल NN
+९ QC
+खेल NN
+का PSP
+ले PSP
+चला VM
+गया VAUX
+. SYM
+</s>
+<vc>
+चला 1
+गया 1
+</vc>
+<s>
+कितना WQ
+फुटबॉल NN
+का PSP
+खेल NN
+जोआन JJ
+सभी QF
+में PSP
+खेल NN
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+५ QC
+किताबे NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसके PRP
+दोस्त NN
+ने PSP
+उसे PRP
+१० QC
+किताबे NN
+दे VM
+. SYM
+</s>
+<vc>
+दे 1
+</vc>
+<s>
+अब PRP
+उसके PRP
+पास NST
+कितनि WQ
+किताबे WQ
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+निक NN
+का PSP
+पास NST
+७ QC
+किताब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसकी PRP
+बहन NN
+ने PSP
+उसे PRP
+३ QC
+और CC
+किताबे NN
+दे VM
+दे VAUX
+. SYM
+</s>
+<vc>
+दे 1
+</vc>
+<s>
+निक NN
+का PSP
+पास NST
+कुल QF
+कितनी QF
+किताब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+निक NN
+का PSP
+पास NST
+७ QC
+किताब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसने PRP
+३ QC
+और CC
+किताबे NN
+खरीद XC
+. SYM
+</s>
+<vc>
+खरीद 1
+</vc>
+<s>
+निक JJ
+का PSP
+पास NST
+कुल QF
+कितनी QF
+किताब NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+पॉल NN
+का PSP
+पास NST
+५ QC
+कलम NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+निक NN
+का PSP
+पास NST
+२ QC
+कलम NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उनके PRP
+पास NST
+कुल QF
+कितना WQ
+कलम NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+एक QC
+तालाब NN
+पर PSP
+तीन QC
+बतख NN
+हे VM
+. SYM
+</s>
+<vc>
+पर 0
+हे 0
+</vc>
+<s>
+अधिक QF
+चार QC
+बतख JJ
+तालाब NN
+मा PSP
+आ VM
+. SYM
+</s>
+<vc>
+आ 1
+</vc>
+<s>
+कितना WQ
+बतख NN
+है VM
+वहाँ PRP
+अब PRP
+? SYM
+</s>
+</q>
+<q>
+<s>
+टॉम NN
+का PSP
+पास NST
+९ QC
+पीला JJ
+गुब्बारा NN
+है VM
+. SYM
+</s>
+<vc>
+है 0
+</vc>
+<s>
+सारा QF
+का PSP
+पास NST
+८ QC
+पीला JJ
+गुब्बारा NN
+है VM
+. SYM
+</s>
+<vc>
+है 0
+</vc>
+<s>
+वह PRP
+कुल QF
+में PSP
+कितना WQ
+पीला JJ
+गुब्बारा NN
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसने PRP
+५ QC
+श्याम NNP
+को PSP
+दे VM
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+अब PRP
+राम NNP
+का PSP
+पास NST
+कितना WQ
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+राम NNP
+का PSP
+पास NST
+१० QC
+सेब NN
+है VM
+. SYM
+</s>
+<vc>
+पास 0
+है 0
+</vc>
+<s>
+उसने PRP
+५ QC
+श्याम NNP
+को PSP
+दे VM
+. SYM
+</s>
+<vc>
+दे 4
+</vc>
+<s>
+अब PRP
+राम NNP
+का PSP
+पास NST
+कितना WQ
+है VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+वहाँ PRP
+खलिहान NN
+में PSP
+घास NN
+का PSP
+28 QC
+गांठें NN
+था VM
+. SYM
+</s>
+<vc>
+था 0
+</vc>
+<s>
+टिम NN
+ने PSP
+आज NN
+खलिहान NN
+में PSP
+गांठें NN
+रख VM
+है VAUX
+. SYM
+</s>
+<vc>
+रख 1
+</vc>
+<s>
+वहाँ PRP
+अब PRP
+खलिहान NN
+में PSP
+घास NN
+का PSP
+54 QC
+गांठें NN
+है VM
+. SYM
+</s>
+<vc>
+है 0
+</vc>
+<s>
+टिम NN
+ने PSP
+खलिहान NN
+में PSP
+कितना WQ
+गांठें NN
+रख VM
+? SYM
+</s>
+</q>
+<q>
+<s>
+वर्ग NN
+ने PSP
+12 QC
+बास्केटबॉल NN
+खेल VM
+इस DEM
+साल NN
+. SYM
+</s>
+<vc>
+खेल 0
+</vc>
+<s>
+वह PRP
+4 QC
+खेल NN
+का PSP
+दौरान NST
+हार VM
+गए VAUX
+. SYM
+</s>
+<vc>
+हार 2
+गए 2
+</vc>
+<s>
+वह PRP
+कितना QF
+खेल NN
+जीत VM
+? SYM
+</s>
+</q>

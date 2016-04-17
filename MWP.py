@@ -1,9 +1,12 @@
 # coding=utf-8
 from collections import OrderedDict
-
+from makeVerbDict import makeVerbDictionary
 from Containers import Container
 from Question import Question
 
+verbTags = ['VM','PSP','NST','VAUX']
+
+trainingDictionary = makeVerbDictionary("POSOutWithVC.txt")
 
 def main():
     global j
@@ -36,7 +39,7 @@ def main():
     question = Question()
     sentence_number= 0
     for sentence in sentences:
-        if sentenc_number == 0:
+        if sentence_number == 0:
             containerFirstSentence(sentence, question)
         else:
             containerOtherSentence(sentence, question,sentence_number)
@@ -64,9 +67,11 @@ def modifyContainer(sentence, question, sentence_number):
 
     index = 0
     indexOfPronoun = -1
-    indexOfProperNoun = -1
     valueEncountered = []
     integerWordDict = OrderedDict()
+    listOfIndicesOfNouns = []
+    namesOfProperNouns = []
+    val = 0
 
     for key, value in sentence.iteritems():
         integerWordDict[index] = key
@@ -76,14 +81,12 @@ def modifyContainer(sentence, question, sentence_number):
 
         if value == 'NNP' and value in question.names:
             indexOfProperNoun = index
+            listOfIndicesOfNouns.append(index)
+            namesOfProperNouns.append(key)
 
-        if value == 'VM':
-            # indexOfVerb = index
-
+        if value in verbTags:
             actionToBePerformed = categoriseVerb(key)
-
-            question.verbs.add(key)
-
+        
         if value == 'QC':
             # indexOfQuantity = index
             val = convertToEnglish(key)
@@ -101,7 +104,7 @@ def modifyContainer(sentence, question, sentence_number):
 
         question.container1[sentence_number].quantity = q1
 
-        q2 = modifyQuantityOfCurrentContainer(question.container2[sentence_number].quantity, actionInSecondContaine,val)
+        q2 = modifyQuantityOfCurrentContainer(question.container2[sentence_number].quantity, actionInSecondContainer,val)
 
         question.container2[sentence_number].quantity = q2
 
@@ -113,7 +116,7 @@ def modifyContainer(sentence, question, sentence_number):
 
         question.container1[sentence_number].quantity = q1
 
-    
+
 
 
 def modifyQuantityOfCurrentContainer(quantity_of_container, action, value_to_add_delete):
@@ -126,6 +129,16 @@ def twoActions(actionToBePerformed):
     return "positive", "negative"
 
 def categoriseVerb(word):
+    # Here it will return 0-4 index depending upon the probabilty of verb
+    if word in trainingDictionary:
+        arr_values = trainingDictionary[word]
+        max_value = max(arr_values)
+        max_indices = [index for index, value in enumerate(arr_values) if value==max_value]
+        return max_indices[0]
+    else:
+        # Word is new, assuming it is observation by default
+        # we have to use wordnet here
+        return 0
 
 
 def containerFirstSentence(sentence, question):
@@ -168,8 +181,6 @@ def containerFirstSentence(sentence, question):
         question.addContainer(Container())
 
         container.printContainer()
-
-
     else:
         # There are more than two NNP
 
