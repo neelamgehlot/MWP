@@ -15,7 +15,7 @@ http://www.coli.uni-saarland.de/~thorsten/tnt/
 Containers will have :
 Entity, Attribute, Verb, Quantity(Equation)
 
-We have following Python files(Each representing a different object):
+We have following Python files(Each representing a different object):    
 1. Question.py    
 2. Containers.py    
 3. Equation.py    
