@@ -4,10 +4,13 @@ from collections import OrderedDict
 from makeVerbDict import makeVerbDictionary
 from Containers import Container
 from Question import Question
+from numbers import Number
 
 verbTags = ['VM','PSP','NST','VAUX']
 
 trainingDictionary = makeVerbDictionary("POSOutWithVC.txt")
+
+questionWords = ['कुल', 'समस्त', 'सब', 'पूरा', 'सारा', 'संपूर्ण', 'सम्पूर्ण', 'पूर्ण', 'समूचा', 'सर्व', 'निखिल', 'अकत', 'अखिल', 'सकल', 'तमाम', 'मुसल्लम', 'विश्वक', 'कामिल', 'अवयवी', 'अशेष', 'भर', 'विश्व']
 
 def main():
     global j
@@ -53,12 +56,41 @@ def main():
     quantity = ""
     entity = ""
     attribute = ""
+    pronoun = ""
+    # False means past
+    tense = ""
+    totalKeyword = False
     for key, value in sentences[len(sentences)-1].iteritems():
         if value == "NNP":
             name = key
+        if value == 'PNP':
+            pronoun = key
+        if key == 'है':
+            tense = "PRESENT"
+        if key == 'थे':
+            tense = "PAST"
+        if key in questionWords:
+            totalKeyword = True
+
+    if tense == "":
+        present = "PRESENT"
 
 
+    containerArrayToBePassed = None
+    result = None
+    if totalKeyword == True:
 
+        result = solution(tense,question.container1,question.container2)
+
+    else:
+        if name == question.container1[len(sentences)-2].name:
+            containerArrayToBePassed = question.container1
+        else:
+            containerArrayToBePassed = question.container2
+
+        result = solution(tense,containerArrayToBePassed)
+
+    print result
 
     print "Container1"
     question.printContainer1()
@@ -66,6 +98,54 @@ def main():
     question.printContainer2()
     arr_first_container = []
     arr_second_container = []
+
+
+def solution(tense, container1, container2 = None):
+   result = 0
+   if tense == "PRESENT":
+       if container2 is None:
+           expression = container1[len(container1)-1].quantity.split(" ")
+           return getExpressionResult(expression)
+
+       else:
+           expression = container1[len(container1)-1].quantity.split(" ")
+           result += getExpressionResult(expression)
+
+           expression = container2[len(container2)-1].quantity.split(" ")
+           result += getExpressionResult(expression)
+
+           return result
+
+   if tense == "PAST":
+       left_side = container1[len(container1)-2].quantity.split(" ")
+       right_side = container1[len(container1)-1].quantity.split(" ")
+       return getEquationResult(left_side, right_side)
+
+
+
+def getExpressionResult(expression):
+   if len(expression) == 3:
+       first_operand = float(expression[0])
+       second_operand = float(expression[2])
+       result = 0
+       if expression[1].strip() == "+":
+           result = first_operand + second_operand
+       elif expression[1].strip() == "-":
+           result = first_operand - second_operand
+       return result
+   else:
+       return float(expression[0])
+
+
+def getEquationResult(left_side, right_side):
+   right_side = float(right_side)
+   second_operand = float(left_side[2])
+   result = 0
+   if left_side[1].strip() == "+":
+       result = right_side - second_operand
+   elif left_side[1].strip() == "-":
+       result = right_side + second_operand
+   return result
 
 def modifyContainer(sentence, question, sentence_number):
 
@@ -169,7 +249,7 @@ def modifyQuantityOfCurrentContainer(quantity_of_container, action, value_to_add
     elif action.strip(" ") == "NEGATIVE":
         return str(quantity_of_container) + " - " + str(value_to_add_delete)
     else:
-        return str(quantity_of_container)
+        return str(value_to_add_delete)
 
 def twoActions(actionToBePerformed):
     # Depending upon either observation, construct, destroy, transfer, return pos,neg, None
@@ -363,7 +443,18 @@ def containerOtherSentence(sentence, question, sentence_number):
         question.addContainer(copyConstructorOf2)
 
 def isNumber(num):
-    return True
+   numList = ['०','१','२','३','४','५','६','७','८','९']
+   number = 0
+   multiplier = 1
+   for i in range(len(num)-1, -1, -3):
+       digit = num[i-2:i+1]
+       if digit not in numList:
+           return False
+       else:
+           number += int(convertToEnglish(digit)) * multiplier
+           multiplier *= 10
+
+   return isinstance(number, Number)
 
 def convertToEnglish(num):
     ans = ""
