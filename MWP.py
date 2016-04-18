@@ -70,8 +70,9 @@ def modifyContainer(sentence, question, sentence_number):
     indexOfPronoun = -1
     valueEncountered = []
     integerWordDict = OrderedDict()
-    listOfIndicesOfNouns = []
+    listOfIndicesOfProperNouns = []
     namesOfProperNouns = []
+    verbsFound = []
     val = 0
 
     for key, value in sentence.iteritems():
@@ -80,13 +81,13 @@ def modifyContainer(sentence, question, sentence_number):
         if value == 'PRP':
             indexOfPronoun = index
 
-        if value == 'NNP' and value in question.names:
-            indexOfProperNoun = index
-            listOfIndicesOfNouns.append(index)
+        if value == 'NNP' :
+            listOfIndicesOfProperNouns.append(index)
             namesOfProperNouns.append(key)
 
         if value in verbTags:
-            actionToBePerformed = categoriseVerb(key)
+            verbsFound.append(value)
+
 
         if value == 'QC':
             # indexOfQuantity = index
@@ -95,12 +96,37 @@ def modifyContainer(sentence, question, sentence_number):
         index += 1
 
 
+    actionToBePerformed = categoriseVerb(verbsFound)
+
     # Depending on action to be performed, there will be two operations
     actionInOneContainer, actionInSecondContainer = twoActions(actionToBePerformed)
 
 
+    if len(listOfIndicesOfProperNouns)==2:
+        # name name
+        firstName = namesOfProperNouns[0]
+        secondName = namesOfProperNouns[1]
 
-    if indexOfPronoun < indexOfProperNoun and indexOfPronoun!=-1 and indexOfProperNoun!=-1:
+        if firstName == question.container1[sentence_number].name:
+            q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer, val)
+
+            question.container1[sentence_number].quantity = q1
+        else:
+            q2 = modifyQuantityOfCurrentContainer(question.container2[sentence_number].quantity, actionInSecondContainer,val)
+
+            question.container2[sentence_number].quantity = q2
+
+        if firstName == question.container2[sentence_number].name:
+            q2 = modifyQuantityOfCurrentContainer(question.container2[sentence_number].quantity, actionInOneContainer,val)
+
+            question.container2[sentence_number].quantity = q2
+        else:
+            q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInSecondContainer, val)
+
+            question.container1[sentence_number].quantity = q1
+
+    elif len(listOfIndicesOfProperNouns)==1 and indexOfPronoun!= -1:
+        # name pronoun
         q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer, val)
 
         question.container1[sentence_number].quantity = q1
@@ -109,37 +135,77 @@ def modifyContainer(sentence, question, sentence_number):
 
         question.container2[sentence_number].quantity = q2
 
-    if indexOfPronoun != -1 and indexOfProperNoun == -1:
-        # In this sentence, only previous container is into existence, so change only in one container
-        # Also the twoActions will return only one action
-        # so make changes in only one quantity
-        q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer,val)
+    elif indexOfPronoun!=-1:
+        #  only pronoun
+        q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer, val)
 
         question.container1[sentence_number].quantity = q1
+
+    elif indexOfPronoun == -1:
+        # only noun
+        nameFound = namesOfProperNouns[0]
+        if nameFound == question.container1[sentence_number].name:
+            q1 = modifyQuantityOfCurrentContainer(question.container1[sentence_number].quantity, actionInOneContainer, val)
+
+            question.container1[sentence_number].quantity = q1
+        else:
+            q2 = modifyQuantityOfCurrentContainer(question.container2[sentence_number].quantity, actionInOneContainer, val)
+
+            question.container2[sentence_number].quantity = q2
+
 
 
 
 
 def modifyQuantityOfCurrentContainer(quantity_of_container, action, value_to_add_delete):
-
     # add or delete value
-    return "updatedQuantity"
+    if action.strip(" ") == "POSITIVE":
+        return str(quantity_of_container) + " + " + str(value_to_add_delete)
+    elif action.strip(" ") == "NEGATIVE":
+        return str(quantity_of_container) + " - " + str(value_to_add_delete)
+    else:
+        return str(quantity_of_container)
 
 def twoActions(actionToBePerformed):
     # Depending upon either observation, construct, destroy, transfer, return pos,neg, None
-    return "positive", "negative"
-
-def categoriseVerb(word):
-    # Here it will return 0-4 index depending upon the probabilty of verb
-    if word in trainingDictionary:
-        arr_values = trainingDictionary[word]
-        max_value = max(arr_values)
-        max_indices = [index for index, value in enumerate(arr_values) if value==max_value]
-        return max_indices[0]
+    if actionToBePerformed == 0 :
+        return "NONE", "NONE"
+    elif actionToBePerformed == 1:
+        return "POSITIVE", "POSITIVE"
+    elif actionToBePerformed == 2:
+        return "NEGATIVE", "NEGATIVE"
+    elif actionToBePerformed == 3:
+        return "POSITIVE", "NEGATIVE"
     else:
-        # Word is new, assuming it is observation by default
-        # we have to use wordnet here
-        return 0
+        return "NEGATIVE", "POSITIVE"
+​
+def categoriseVerb(verbsFound):
+    # Here it will return 0-4 index depending upon the probabilty of verb
+    # if len(verbsFound)==1:
+    #
+    #     if verbsFound[0] in trainingDictionary:
+    #         arr_values = trainingDictionary[verbsFound[0]]
+    #         max_value = max(arr_values)
+    #         max_indices = [index for index, value in enumerate(arr_values) if value==max_value]
+    #         return max_indices[0]
+    #     else:
+    #         # Word is new, assuming it is observation by default
+    #         # we have to use wordnet here
+    #         return 0
+    newValuesOfProbabilty = [1.0 for i in range(0,5)]
+    for j in range(0,5):
+        for i in range(0,len(verbsFound)):
+            individualProbabilty = trainingDictionary[verbsFound[i]][j]/trainingDictionary[verbsFound[i]][5]
+            newValuesOfProbabilty[j] *= individualProbabilty
+
+    max_value = max(newValuesOfProbabilty)
+    max_indices = [index for index, value in enumerate(newValuesOfProbabilty) if value==max_value]
+    return max_indices[0]
+
+
+
+
+
 
 
 def containerFirstSentence(sentence, question):
@@ -181,7 +247,7 @@ def containerFirstSentence(sentence, question):
 
         question.addContainer(Container())
 
-        container.printContainer()
+        # container.printContainer()
     else:
         # There are more than two NNP
 
@@ -226,7 +292,7 @@ def containerFirstSentence(sentence, question):
 
         question.addContainer(container)
 
-        container.printContainer()
+        # container.printContainer()
 
         for i in range(indexOfSecondNNP, len(sentence)):
             if sentence[integer_word_dict[i]] == "NNP":
@@ -247,7 +313,7 @@ def containerFirstSentence(sentence, question):
 
         question.addContainer(container)
 
-        container.printContainer()
+        # container.printContainer()
 
 
 def containerOtherSentence(sentence, question, sentence_number):
@@ -289,7 +355,7 @@ def containerOtherSentence(sentence, question, sentence_number):
 
             question.addContainer(container)
 
-            container.printContainer()
+            # container.printContainer()
 
     else:
         # Copy second container also that is make container2[1]
