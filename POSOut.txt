@@ -3,37 +3,27 @@
 राम NNP
 का PSP
 पास NST
-१० QC
-सेब NN
-है VM
-. SYM
-</s>
-<s>
-उसने PRP
-श्याम NNP
-को PSP
 ५ QC
-सेब NN
-दे VM
-. SYM
-</s>
-<s>
-अब PRP
-राम NNP
-का PSP
-पास NST
-७ QC
-सेब NN
+कलम NN
 है VM
 . SYM
 </s>
 <s>
-तो CC
 श्याम NNP
 का PSP
 पास NST
-पेह्ले JJ
-कितना WQ
-सेब NN
-था VM
+२ QC
+कलम NN
+है VM
 . SYM
+</s>
+<s>
+उनके PRP
+पास NST
+कुल QF
+कितना WQ
+कलम NN
+है VM
+? SYM
+</s>
+</q>

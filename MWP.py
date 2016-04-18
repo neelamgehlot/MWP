@@ -148,7 +148,7 @@ def getExpressionResult(expression):
 
 
 def getEquationResult(left_side, right_side):
-   
+
    right_side = float(right_side[0])
    second_operand = float(left_side[2])
    result = 0
@@ -437,7 +437,7 @@ def containerOtherSentence(sentence, question, sentence_number):
                 attribute = key
 
         if booleanMakeNewContainer==True:
-            container = Container(newName, entity, attribute, "J")
+            container = Container(newName, entity, attribute, "X")
 
             question.addContainer(container)
 
