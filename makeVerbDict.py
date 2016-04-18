@@ -25,15 +25,13 @@ def makeVerbDictionary(fileName):
                         verbDict[verb][int(category)] += 1
 
                     else:
-                        verbDict[verb] = list(0 for i in range(0, 5))
+                        verbDict[verb] = list(1 for i in range(0, 6))
+                        verbDict[verb][5] = 5
                         verbDict[verb][int(category)] += 1
 
-
+                    verbDict[verb][5] += 1
 
         else:
             continue
 
     return verbDict
-
-
-

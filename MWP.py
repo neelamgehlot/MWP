@@ -1,4 +1,5 @@
 # coding=utf-8
+from __future__ import division
 from collections import OrderedDict
 from makeVerbDict import makeVerbDictionary
 from Containers import Container
@@ -38,30 +39,37 @@ def main():
 
     question = Question()
     sentence_number= 0
-    for sentence in sentences:
+    for i in range(0,len(sentences)-1):
         if sentence_number == 0:
-            containerFirstSentence(sentence, question)
+            containerFirstSentence(sentences[i], question)
         else:
-            containerOtherSentence(sentence, question,sentence_number)
+            containerOtherSentence(sentences[i], question,sentence_number)
 
             # After creating copy containers, call modify on same sentence by passing the same copied container
 
-            modifyContainer(sentence,question,sentence_number)
+            modifyContainer(sentences[i],question,sentence_number)
         sentence_number += 1
+    name = ""
+    quantity = ""
+    entity = ""
+    attribute = ""
+    for key, value in sentences[len(sentences)-1].iteritems():
+        if value == "NNP":
+            name = key
 
 
+
+
+    print "Container1"
+    question.printContainer1()
+    print "Container2"
+    question.printContainer2()
     arr_first_container = []
     arr_second_container = []
 
-
-'''
-    for i in range(0,len(sentences)):
-        print "hello"
-'''
-
 def modifyContainer(sentence, question, sentence_number):
 
-
+    # print sentence
     # indexOfVerb = -1
 
     # indexOfQuantity = -1
@@ -86,7 +94,8 @@ def modifyContainer(sentence, question, sentence_number):
             namesOfProperNouns.append(key)
 
         if value in verbTags:
-            verbsFound.append(value)
+            # print key
+            verbsFound.append(key)
 
 
         if value == 'QC':
@@ -153,10 +162,6 @@ def modifyContainer(sentence, question, sentence_number):
 
             question.container2[sentence_number].quantity = q2
 
-
-
-
-
 def modifyQuantityOfCurrentContainer(quantity_of_container, action, value_to_add_delete):
     # add or delete value
     if action.strip(" ") == "POSITIVE":
@@ -178,35 +183,26 @@ def twoActions(actionToBePerformed):
         return "POSITIVE", "NEGATIVE"
     else:
         return "NEGATIVE", "POSITIVE"
-​
+
 def categoriseVerb(verbsFound):
-    # Here it will return 0-4 index depending upon the probabilty of verb
-    # if len(verbsFound)==1:
-    #
-    #     if verbsFound[0] in trainingDictionary:
-    #         arr_values = trainingDictionary[verbsFound[0]]
-    #         max_value = max(arr_values)
-    #         max_indices = [index for index, value in enumerate(arr_values) if value==max_value]
-    #         return max_indices[0]
-    #     else:
-    #         # Word is new, assuming it is observation by default
-    #         # we have to use wordnet here
-    #         return 0
+    # for i in range(0, len(verbsFound)):
+    #     print verbsFound[i],
+    # for key, value in trainingDictionary.iteritems():
+    #     print key,
+    #     print value
+    # print trainingDictionary
     newValuesOfProbabilty = [1.0 for i in range(0,5)]
     for j in range(0,5):
         for i in range(0,len(verbsFound)):
-            individualProbabilty = trainingDictionary[verbsFound[i]][j]/trainingDictionary[verbsFound[i]][5]
-            newValuesOfProbabilty[j] *= individualProbabilty
+            if verbsFound[i] in trainingDictionary:
+                individualProbabilty = trainingDictionary[verbsFound[i]][j]/trainingDictionary[verbsFound[i]][5]
+                newValuesOfProbabilty[j] = newValuesOfProbabilty[j]*individualProbabilty
 
     max_value = max(newValuesOfProbabilty)
+
+    # print newValuesOfProbabilty
     max_indices = [index for index, value in enumerate(newValuesOfProbabilty) if value==max_value]
     return max_indices[0]
-
-
-
-
-
-
 
 def containerFirstSentence(sentence, question):
     names = set()
@@ -293,28 +289,27 @@ def containerFirstSentence(sentence, question):
         question.addContainer(container)
 
         # container.printContainer()
+        if indexOfSecondNNP!=-1:
+            for i in range(indexOfSecondNNP, len(sentence)):
+                if sentence[integer_word_dict[i]] == "NNP":
+                    name = integer_word_dict[i]
 
-        for i in range(indexOfSecondNNP, len(sentence)):
-            if sentence[integer_word_dict[i]] == "NNP":
-                name = integer_word_dict[i]
+                if sentence[integer_word_dict[i]] == "QC" and isNumber(integer_word_dict[i]):
+                    quantity = convertToEnglish(integer_word_dict[i])
+                    quantityFlag = True
 
-            if sentence[integer_word_dict[i]] == "QC" and isNumber(integer_word_dict[i]):
-                quantity = convertToEnglish(integer_word_dict[i])
-                quantityFlag = True
+                if quantityFlag and not entityFlag and sentence[integer_word_dict[i]] == "NN":
+                    entity = integer_word_dict[i]
+                    entityFlag = True
 
-            if quantityFlag and not entityFlag and sentence[integer_word_dict[i]] == "NN":
-                entity = integer_word_dict[i]
-                entityFlag = True
+                if quantityFlag and not entityFlag and sentence[integer_word_dict[i]] == "JJ":
+                    attribute = integer_word_dict[i]
 
-            if quantityFlag and not entityFlag and sentence[integer_word_dict[i]] == "JJ":
-                attribute = integer_word_dict[i]
+            container = Container(name, entity, attribute, quantity)
 
-        container = Container(name, entity, attribute, quantity)
+            question.addContainer(container)
 
-        question.addContainer(container)
-
-        # container.printContainer()
-
+            # container.printContainer()
 
 def containerOtherSentence(sentence, question, sentence_number):
     # find pronoun, noun, verb
@@ -322,12 +317,12 @@ def containerOtherSentence(sentence, question, sentence_number):
     copyConstructorOf1 = Container()
 
     copyConstructorOf1.copyContainer(question.container1[sentence_number-1])
-    print "first ka copy"
-    copyConstructorOf1.printContainer()
+    # print "first ka copy"
+    # copyConstructorOf1.printContainer()
 
     question.addContainer(copyConstructorOf1)
-    print len(question.names)
-    print "Hah"
+    # print len(question.names)
+    # print "Hah"
     name = ""
     quantity = ""
     entity = ""
@@ -362,15 +357,13 @@ def containerOtherSentence(sentence, question, sentence_number):
         copyConstructorOf2 = Container()
 
         copyConstructorOf2.copyContainer(question.container2[sentence_number-1])
-        print "second copy"
-        copyConstructorOf2.printContainer()
+        # print "second copy"
+        # copyConstructorOf2.printContainer()
 
         question.addContainer(copyConstructorOf2)
 
-
 def isNumber(num):
     return True
-
 
 def convertToEnglish(num):
     ans = ""
@@ -392,7 +385,6 @@ def convertToEnglish(num):
         temp_digit = hindiToEnglish[num[i:i + 3]]
         ans += str(temp_digit)
     return ans
-
 
 if __name__ == "__main__":
     main()
