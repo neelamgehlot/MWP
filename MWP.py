@@ -49,6 +49,7 @@ def main():
             modifyContainer(sentence,question,sentence_number)
         sentence_number += 1
 
+
     arr_first_container = []
     arr_second_container = []
 
@@ -86,7 +87,7 @@ def modifyContainer(sentence, question, sentence_number):
 
         if value in verbTags:
             actionToBePerformed = categoriseVerb(key)
-        
+
         if value == 'QC':
             # indexOfQuantity = index
             val = convertToEnglish(key)
@@ -259,7 +260,8 @@ def containerOtherSentence(sentence, question, sentence_number):
     copyConstructorOf1.printContainer()
 
     question.addContainer(copyConstructorOf1)
-    print len(question.container1)
+    print len(question.names)
+    print "Hah"
     name = ""
     quantity = ""
     entity = ""
@@ -268,11 +270,12 @@ def containerOtherSentence(sentence, question, sentence_number):
     quantityFlag = False
     entityFlag = False
     if len(question.names)==1:
-
+        booleanMakeNewContainer = False
         for key, value in sentence.iteritems():
             if value == "NNP" and key not in question.names:
-                name = key
-                question.names.add(name)
+                newName = key
+                booleanMakeNewContainer = True
+                question.names.add(newName)
 
             if quantityFlag and not entityFlag and value == "NN":
                 entity = key
@@ -281,11 +284,12 @@ def containerOtherSentence(sentence, question, sentence_number):
             if quantityFlag and not entityFlag and value == "JJ":
                 attribute = key
 
-        container = Container(name, entity, attribute, "J")
+        if booleanMakeNewContainer==True:
+            container = Container(newName, entity, attribute, "J")
 
-        question.addContainer(container)
+            question.addContainer(container)
 
-        container.printContainer()
+            container.printContainer()
 
     else:
         # Copy second container also that is make container2[1]
