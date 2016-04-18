@@ -9,7 +9,7 @@ from numbers import Number
 verbTags = ['VM','PSP','NST','VAUX']
 
 trainingDictionary = makeVerbDictionary("POSOutWithVC.txt")
-
+# Replacing it with synset later
 questionWords = ['कुल', 'समस्त', 'सब', 'पूरा', 'सारा', 'संपूर्ण', 'सम्पूर्ण', 'पूर्ण', 'समूचा', 'सर्व', 'निखिल', 'अकत', 'अखिल', 'सकल', 'तमाम', 'मुसल्लम', 'विश्वक', 'कामिल', 'अवयवी', 'अशेष', 'भर', 'विश्व']
 
 def main():
@@ -67,14 +67,18 @@ def main():
             pronoun = key
         if key == 'है':
             tense = "PRESENT"
-        if key == 'थे':
+        if key == 'था':
             tense = "PAST"
         if key in questionWords:
             totalKeyword = True
 
     if tense == "":
-        present = "PRESENT"
+        tense = "PRESENT"
 
+    print "Container1"
+    question.printContainer1()
+    print "Container2"
+    question.printContainer2()
 
     containerArrayToBePassed = None
     result = None
@@ -90,35 +94,41 @@ def main():
 
         result = solution(tense,containerArrayToBePassed)
 
+
+
+
+    print "The final result is: ",
     print result
 
-    print "Container1"
-    question.printContainer1()
-    print "Container2"
-    question.printContainer2()
-    arr_first_container = []
-    arr_second_container = []
-
-
 def solution(tense, container1, container2 = None):
+   print tense
    result = 0
    if tense == "PRESENT":
        if container2 is None:
            expression = container1[len(container1)-1].quantity.split(" ")
+           print "Equation is: "+container1[len(container1)-1].quantity
            return getExpressionResult(expression)
 
        else:
            expression = container1[len(container1)-1].quantity.split(" ")
+           print "Equation is: "+container1[len(container1)-1].quantity
            result += getExpressionResult(expression)
 
            expression = container2[len(container2)-1].quantity.split(" ")
+           print "Equation is: "+container2[len(container2)-1].quantity
            result += getExpressionResult(expression)
 
            return result
 
    if tense == "PAST":
+       print "Hello"
        left_side = container1[len(container1)-2].quantity.split(" ")
        right_side = container1[len(container1)-1].quantity.split(" ")
+       print "Equation is :"
+       print container1[len(container1)-2].quantity,
+       print " = ",
+       print container1[len(container1)-1].quantity
+
        return getEquationResult(left_side, right_side)
 
 
@@ -138,7 +148,8 @@ def getExpressionResult(expression):
 
 
 def getEquationResult(left_side, right_side):
-   right_side = float(right_side)
+   
+   right_side = float(right_side[0])
    second_operand = float(left_side[2])
    result = 0
    if left_side[1].strip() == "+":
