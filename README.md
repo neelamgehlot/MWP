@@ -24,39 +24,39 @@ We have following Python files(Each representing a different object):
 
 # Example:
 
-राम के पास १० सेब है। उसने श्याम को ५ सेब दिये। अब राम के पास ७ सेब है। तो श्याम के पास पेह्ले कितने सेब थे।
-
+राम के पास १० सेब है। उसने श्याम को ५ सेब दिये। अब राम के पास ७ सेब है। तो श्याम के पास पेह्ले कितने सेब थे।    
+Ram has 10 apples. He gave 5 apples to Shyam. Ram now has 7 apples. So how many apples does Shyam initially had?    
 
 Container1  
 Name : राम    
 Entity : सेब    
-Attr :    
+Attribute :    
 Quantity:10    
 
 Name : राम    
 Entity : सेब    
-Attr :    
+Attribute :    
 Quantity:10 - 5    
 
 Name : राम    
 Entity : सेब    
-Attr :    
+Attribute :    
 Quantity:7    
 
 Container2    
 Name :    
 Entity :    
-Attr :    
+Attribute :    
 Quantity:    
 
 Name : श्याम    
 Entity :     
-Attr :     
+Attribute :     
 Quantity:J + 5    
 
 Name : श्याम    
 Entity :    
-Attr :    
+Attribute :    
 Quantity:7    
 
 Equation is :    
