@@ -24,8 +24,8 @@ We have following Python files(Each representing a different object):
 
 # Example:
 
-राम के पास १० सेब है। उसने श्याम को ५ सेब दिये। अब राम के पास ७ सेब है। तो श्याम के पास पेह्ले कितने सेब थे।    
-Ram has 10 apples. He gave 5 apples to Shyam. Ram now has 7 apples. So how many apples does Shyam initially had?    
+राम के पास १० सेब है। उसने श्याम को ५ सेब दिये। अब श्याम के पास ७ सेब है। तो श्याम के पास पेह्ले कितने सेब थे।    
+Ram has 10 apples. He gave 5 apples to Shyam. Shyam now has 7 apples. So how many apples does Shyam initially had?    
 
 Container1  
 Name : राम    
